@@ -1,0 +1,13 @@
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\bin\Release\imgR.exe.config
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\bin\Release\imgR.exe
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\bin\Release\imgR.pdb
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP-Etapa1.csprojAssemblyReference.cache
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP.compareWindow.resources
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP.mainWindow.resources
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP.maxView.resources
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP.Properties.Resources.resources
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP.resultsWindow.resources
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP-Etapa1.csproj.GenerateResource.cache
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\iP-Etapa1.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\imgR.exe
+C:\Users\Rodrigo Ochoa\Documents\Visual Studio 2019\Projects\imageProcessing - Etapa 1\obj\Release\imgR.pdb
