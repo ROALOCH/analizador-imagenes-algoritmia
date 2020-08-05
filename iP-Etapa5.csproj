@@ -4,31 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{875865C4-F389-4598-B94A-4C85D06D8543}</ProjectGuid>
+    <ProjectGuid>{0CA77352-B375-49EE-A9EF-F2D8D6FD89E2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>R</RootNamespace>
-    <AssemblyName>R</AssemblyName>
+    <RootNamespace>iP_Etapa5</RootNamespace>
+    <AssemblyName>iP-Etapa5</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,20 +31,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>R.Program</StartupObject>
-  </PropertyGroup>
-  <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -77,26 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ARMWindow.cs">
+    <Compile Include="DijkstraWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ARMWindow.Designer.cs">
-      <DependentUpon>ARMWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Circle.cs" />
-    <Compile Include="CompareARM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CompareARM.Designer.cs">
-      <DependentUpon>CompareARM.cs</DependentUpon>
+    <Compile Include="DijkstraWindow.Designer.cs">
+      <DependentUpon>DijkstraWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Graph.cs" />
-    <Compile Include="GraphSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GraphSearch.Designer.cs">
-      <DependentUpon>GraphSearch.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Library.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,25 +62,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ShowGraph.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ShowGraph.Designer.cs">
-      <DependentUpon>ShowGraph.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ARMWindow.resx">
-      <DependentUpon>ARMWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CompareARM.resx">
-      <DependentUpon>CompareARM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GraphSearch.resx">
-      <DependentUpon>GraphSearch.cs</DependentUpon>
+    <EmbeddedResource Include="DijkstraWindow.resx">
+      <DependentUpon>DijkstraWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -138,15 +78,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Resource1.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ShowGraph.resx">
-      <DependentUpon>ShowGraph.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,22 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="favicon.ico" />
-    <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
