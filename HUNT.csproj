@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CA77352-B375-49EE-A9EF-F2D8D6FD89E2}</ProjectGuid>
+    <ProjectGuid>{E350C9AE-6980-498B-9623-1CF4816D62E3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>iP_Etapa5</RootNamespace>
-    <AssemblyName>iP-Etapa5</AssemblyName>
+    <RootNamespace>HUNT</RootNamespace>
+    <AssemblyName>HUNT</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,13 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DijkstraWindow.cs">
+    <Compile Include="ConfigWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DijkstraWindow.Designer.cs">
-      <DependentUpon>DijkstraWindow.cs</DependentUpon>
+    <Compile Include="ConfigWindow.Designer.cs">
+      <DependentUpon>ConfigWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Graph.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -62,8 +61,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DijkstraWindow.resx">
-      <DependentUpon>DijkstraWindow.cs</DependentUpon>
+    <Compile Include="SimulationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimulationWindow.Designer.cs">
+      <DependentUpon>SimulationWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ConfigWindow.resx">
+      <DependentUpon>ConfigWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -78,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SimulationWindow.resx">
+      <DependentUpon>SimulationWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,7 +100,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,65 +8,69 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace iP_Etapa5
+namespace HUNT
 {
     public partial class MainWindow : Form
     {
-        Library lib = new Library();
-        Bitmap pbmp, sbmp, gbmp;
-        Graphics graB, graG;
-        Graph g = new Graph();
+        Functions library = new Functions();
+        Bitmap shapeD, processed, graph;
+        Graphics processedG, graphG;
+        Graph g;
+
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        // BOTONES //
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "Imagen (*.PNG; *.JPG) | *.PNG; *.JPG";
             if(DialogResult.OK == file.ShowDialog())
             {
-                g.clear();
+                shapeD = new Bitmap(file.FileName);
+                processed = new Bitmap(file.FileName);
+                graph = new Bitmap(shapeD.Width, shapeD.Height);
 
-                pbmp = new Bitmap(file.FileName);
-                sbmp = new Bitmap(file.FileName);
-                gbmp = new Bitmap(pbmp.Width, pbmp.Height);
-                graB = Graphics.FromImage(pbmp);
-                graG = Graphics.FromImage(gbmp);
+                processedG = Graphics.FromImage(processed);
+                graphG = Graphics.FromImage(graph);
 
-                pictureBox.Image = pbmp;
+                g = new Graph();
+
+                pictureBox.Image = processed;
                 buttonProcess.Enabled = true;
-                buttonDijkstra.Enabled = false;
-                buttonSave.Enabled = false;
             }
         }
         private void buttonProcess_Click(object sender, EventArgs e)
         {
-            lib.processImage(sbmp, pbmp, graB, graG, g);
-            pictureBox.Image = pbmp;
-
             buttonProcess.Enabled = false;
-            buttonDijkstra.Enabled = true;
+            library.processImage(shapeD, processed, processedG, graphG, g);
             buttonSave.Enabled = true;
-        }
-        private void buttonDijkstra_Click(object sender, EventArgs e)
-        {
-            Bitmap canvas = new Bitmap(gbmp.Width, gbmp.Height);
-            Graphics canvasG = Graphics.FromImage(canvas);
-
-            DijkstraWindow newWindow = new DijkstraWindow(gbmp, graG, canvas, canvasG, g);
-            newWindow.ShowDialog();
-            newWindow.Dispose();
+            buttonSimulate.Enabled = true;
+            pictureBox.Refresh();
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
 
         }
+        private void buttonSimulate_Click(object sender, EventArgs e)
+        {
+            ConfigWindow configWindow = new ConfigWindow();
+            if (DialogResult.OK == configWindow.ShowDialog())
+            {
+                bool radar = configWindow.getRadar();
+                bool relation = configWindow.getRelation();
+                bool route = configWindow.getRoute();
+                bool health = configWindow.getHealth();
+                int radarSize = configWindow.getRadarSize();
+
+                SimulationWindow simulationWindow = new SimulationWindow(radar, relation, route, health, radarSize, g, graph, graphG);
+                simulationWindow.ShowDialog();
+                g.clearPP();
+            }
+        }
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }        
+        }
     }
 }

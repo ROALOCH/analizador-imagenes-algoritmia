@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace iP_Etapa5.Properties
+namespace HUNT.Properties
 {
 
 
