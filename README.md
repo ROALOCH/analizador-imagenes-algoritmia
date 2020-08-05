@@ -14,4 +14,4 @@ Para ejecutar el programa simplemente abra el .exe o la solución en Visual Stud
 
 ### Licencia
 
-[MIT](/LICENSE.md)
+[MIT](/blob/master/LICENSE)
