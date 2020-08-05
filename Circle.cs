@@ -5,19 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iP
+namespace iP_Etapa2
 {
     public class Circle
     {
-        private int id;
-        private int centerX, centerY;
+        private int iD;
         private int upperY, lowestY, leftSideX, rightSideX;
-        public int radiusH, radiusV, sizeX, sizeY;
+        private int radiusH, radiusV, sizeX, sizeY;
+        private Point center;
 
-        public Circle(int cx, int cy, int uy, int ly, int lsx, int rsx, int i)
+        public Circle(int cx, int cy, int uy, int ly, int lsx, int rsx, int id)
         {
-            centerX = cx;
-            centerY = cy;
+            iD = id;
+            center.X = cx;
+            center.Y = cy;
             upperY = uy;
             lowestY = ly;
             leftSideX = lsx;
@@ -26,119 +27,84 @@ namespace iP
             radiusV = ly - cy;
             sizeX = rsx - lsx;
             sizeY = ly - uy;
-            id = i;
         }
 
-        // RETORNA LA INFORMACION NECESARIA PARA MOSTRARSE EN UN LISTBOX
-        // FORMATO -> "Circulo N. X, Centro (X,Y), Radio: 10"
-        public string showInfo()
-        {
-            return "Circulo N. " + id + ", Centro (" + getCenterC() + "), " + "Radio: " + radiusH;
-        }
-        // RETORNA EL RADIO HORIZONTAL DE LA FIGURA
-        public int getRadius()
-        {
-            return radiusH;
-        }
-        // RETORNA EL CENTRO DE LA FIGURA EN FORMATO DE COORDENADA
-        // FORMATO -> "X, Y"
-        public string getCenterC()
-        {
-            return centerX.ToString() + ", " + centerY.ToString();
-        }
-
-        // RETORNA EL IDENTIFICADOR DE LA FIGURA
-        public int getID()
-        {
-            return id;
-        }
+        public int getID() => iD;
+        public int getRadius() => radiusH;
+        public Point getCenter() => center;
+        public string showInfo() => "Círculo N. " + iD + ", Centro (" + center.X + ", " + center.Y + "), Radio: " + radiusH + " pixeles"; 
+        public bool isCircle() => (((radiusV - radiusH) <= 10) && ((radiusV - radiusH) >= -10));
+        public static bool operator >(Circle a, Circle b) => a.getRadius() > b.getRadius();
+        public static bool operator <(Circle a, Circle b) => a.getRadius() < b.getRadius();
         private bool isWhite(Color c)
         {
-            return c.Name == "ffffffff";
+            if (c.R == 255)
+                if (c.G == 255)
+                    if (c.B == 255)
+                        return true;
+            return false;
         }
-        public bool isCircle()
-        {
-            return (((radiusV - radiusH) <= 10) && ((radiusV - radiusH) >= -10));
-        }
-
-        // SE COLOREA LA FIGURA. 
-        // SI ES CIRCULO SE PINTA DE MAGENTA
-        // SI ES OVALO SE PINTA DE AMARILLO PARA POSTERIORMENTE SER ELIMINADO.
         public bool eraseShape(Bitmap b)
         {
-            int up = centerY;
-            int down = centerY;
+            int up;
+            int down;
             bool flag = false;
-            // RECORRIDO IZQUIERDA A DERECHA
-            // DESDE LOS EXTREMOS DE LA FIGURA (EXTREMO IZQ A EXTREMO DER)
-            // SE COLOREA DEL CENTRO HACIA LOS EXTREMOS
-            // CENTRO A EXT. SUPERIOR Y CENTRO A EXT. INFERIOR
-            for(int x = leftSideX; x <= rightSideX; x++)
+
+            for(int x = leftSideX - 5; x <= rightSideX + 5; x++)
             {
-                up = centerY;
-                down = centerY;
+                up = center.Y;
+                down = center.Y;
                 while(!isWhite(b.GetPixel(x, up)))
                 {
-                    b.SetPixel(x, up, Color.Magenta);
-                    if (!isCircle())
+                    if (isCircle())
+                        b.SetPixel(x, up, Color.Magenta);
+                    else
                     {
                         flag = true;
-                        b.SetPixel(x, up, Color.Yellow);
+                        b.SetPixel(x, up, Color.Snow);
                     }
                     up++;
                 }
-                while (!isWhite(b.GetPixel(x, down)))
+                while(!isWhite(b.GetPixel(x, down)))
                 {
-                    b.SetPixel(x, down, Color.Magenta);
-                    if (!isCircle())
-                    {
-                        b.SetPixel(x, down, Color.Yellow);
-                    }
-                    down--;
-                }
-            }
-            return flag;
-        }
-
-        // SE COLOREA UNA CRUZ DE 3 PIXELES POR LADO PARTIENDO DEL CENTRO
-        public void drawCenter(Bitmap b, Color c)
-        {
-            b.SetPixel(centerX, centerY, c);
-            b.SetPixel(centerX, centerY + 1, c);
-            b.SetPixel(centerX, centerY + 2, c);
-            b.SetPixel(centerX, centerY + 3, c);
-            b.SetPixel(centerX, centerY - 1, c);
-            b.SetPixel(centerX, centerY - 2, c);
-            b.SetPixel(centerX, centerY - 3, c);
-            b.SetPixel(centerX + 3, centerY, c);
-            b.SetPixel(centerX + 2, centerY, c);
-            b.SetPixel(centerX + 1, centerY, c);
-            b.SetPixel(centerX - 1, centerY, c);
-            b.SetPixel(centerX - 2, centerY, c);
-            b.SetPixel(centerX - 3, centerY, c);
-        }
-
-        // SE RESALTA LA FIGURA CIRCULAR EN TONO INDIGO
-        public void highlightShape(Bitmap b)
-        {
-            int up, down;
-            for (int x = leftSideX; x <= rightSideX; x++)
-            {
-                up = centerY;
-                down = centerY;
-                while (!isWhite(b.GetPixel(x, up)))
-                {
-                    b.SetPixel(x, up, Color.Indigo);
-                    up++;
-                }
-                while (!isWhite(b.GetPixel(x, down)))
-                {
-                    b.SetPixel(x, down, Color.Indigo);
+                    if (isCircle())
+                        b.SetPixel(x, down, Color.Magenta);
+                    else
+                        b.SetPixel(x, down, Color.Snow);
                     down--;
                 }
             }
             drawCenter(b, Color.White);
+            return flag;
+        }
+        public void drawCenter(Bitmap b, Color c)
+        {
+            for(int i = -3; i <= 3; i++)
+            {
+                b.SetPixel(center.X - i, center.Y, c);
+                b.SetPixel(center.X, center.Y - i, c);
+            }
+        }
+        public void highlightShape(Bitmap b, Color cir, Color ctr)
+        {
+            int up;
+            int down;
+            for(int x = leftSideX - 5; x <= rightSideX + 5; x++)
+            {
+                up = center.Y;
+                down = center.Y;
+                while(!isWhite(b.GetPixel(x, up)))
+                {
+                    b.SetPixel(x, up, cir);
+                    up--;
+                }
+                while(!isWhite(b.GetPixel(x, down)))
+                {
+                    b.SetPixel(x, down, cir);
+                    down++;
+                }
+            }
+            drawCenter(b, ctr);
         }
     }
-
-    }
+}

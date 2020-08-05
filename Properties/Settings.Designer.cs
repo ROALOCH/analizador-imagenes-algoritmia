@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace iP.Properties
+namespace iP_Etapa2.Properties
 {
 
 
