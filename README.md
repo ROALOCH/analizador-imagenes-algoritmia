@@ -14,4 +14,4 @@ Para ejecutar el programa simplemente abra el .exe o la solución en Visual Stud
 
 ### Licencia
 
-[MIT](/blob/master/LICENSE)
+[MIT](https://github.com/ROALOCH/analizador-imagenes-algoritmia/blob/master/LICENSE)
