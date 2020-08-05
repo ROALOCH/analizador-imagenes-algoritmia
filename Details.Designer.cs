@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Details));
             this.pictureBoxDisplay = new System.Windows.Forms.PictureBox();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.labelIDistance = new System.Windows.Forms.Label();
             this.labelDistance = new System.Windows.Forms.Label();
             this.labelPoints = new System.Windows.Forms.Label();
             this.panelDivider2 = new System.Windows.Forms.Panel();
@@ -38,14 +39,13 @@
             this.labelList = new System.Windows.Forms.Label();
             this.listBox = new System.Windows.Forms.ListBox();
             this.panelDivider1 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.labelRadiusI = new System.Windows.Forms.Label();
             this.labelCenterI = new System.Windows.Forms.Label();
             this.labelRadius = new System.Windows.Forms.Label();
             this.labelCenter = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.comboBox = new System.Windows.Forms.ComboBox();
-            this.labelIDistance = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisplay)).BeginInit();
             this.panelControl.SuspendLayout();
             this.panelDivider1.SuspendLayout();
@@ -82,6 +82,18 @@
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(356, 688);
             this.panelControl.TabIndex = 1;
+            // 
+            // labelIDistance
+            // 
+            this.labelIDistance.BackColor = System.Drawing.Color.Transparent;
+            this.labelIDistance.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIDistance.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelIDistance.Location = new System.Drawing.Point(39, 191);
+            this.labelIDistance.Name = "labelIDistance";
+            this.labelIDistance.Size = new System.Drawing.Size(161, 40);
+            this.labelIDistance.TabIndex = 16;
+            this.labelIDistance.Text = "DISTANCIA:";
+            this.labelIDistance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelDistance
             // 
@@ -134,9 +146,9 @@
             this.labelList.ForeColor = System.Drawing.SystemColors.Window;
             this.labelList.Location = new System.Drawing.Point(20, 242);
             this.labelList.Name = "labelList";
-            this.labelList.Size = new System.Drawing.Size(146, 27);
+            this.labelList.Size = new System.Drawing.Size(164, 27);
             this.labelList.TabIndex = 10;
-            this.labelList.Text = "LISTA DE VÉRTICES";
+            this.labelList.Text = "LISTA DE CÍRCULOS";
             this.labelList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listBox
@@ -161,6 +173,14 @@
             this.panelDivider1.Name = "panelDivider1";
             this.panelDivider1.Size = new System.Drawing.Size(310, 5);
             this.panelDivider1.TabIndex = 6;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Magenta;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(13, 139);
+            this.panel1.TabIndex = 7;
             // 
             // labelRadiusI
             // 
@@ -213,6 +233,7 @@
             this.buttonOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOK.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOK.ForeColor = System.Drawing.SystemColors.Window;
             this.buttonOK.Location = new System.Drawing.Point(270, 43);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(60, 25);
@@ -225,32 +246,13 @@
             // 
             this.comboBox.BackColor = System.Drawing.SystemColors.Window;
             this.comboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox.Location = new System.Drawing.Point(20, 43);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(244, 25);
             this.comboBox.TabIndex = 0;
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            // 
-            // labelIDistance
-            // 
-            this.labelIDistance.BackColor = System.Drawing.Color.Transparent;
-            this.labelIDistance.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIDistance.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelIDistance.Location = new System.Drawing.Point(39, 191);
-            this.labelIDistance.Name = "labelIDistance";
-            this.labelIDistance.Size = new System.Drawing.Size(161, 40);
-            this.labelIDistance.TabIndex = 16;
-            this.labelIDistance.Text = "DISTANCIA:";
-            this.labelIDistance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Magenta;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(13, 139);
-            this.panel1.TabIndex = 7;
             // 
             // Details
             // 

@@ -180,6 +180,7 @@
             // 
             this.comboBox.BackColor = System.Drawing.SystemColors.Window;
             this.comboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox.Location = new System.Drawing.Point(23, 29);
             this.comboBox.Name = "comboBox";

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainWindow));
-            this.pictureBoxDisplay = new System.Windows.Forms.PictureBox();
             this.panelControl = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -40,21 +39,11 @@
             this.buttonProcess = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisplay)).BeginInit();
+            this.pictureBoxDisplay = new System.Windows.Forms.PictureBox();
             this.panelControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisplay)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBoxDisplay
-            // 
-            this.pictureBoxDisplay.Cursor = System.Windows.Forms.Cursors.No;
-            this.pictureBoxDisplay.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxDisplay.Image")));
-            this.pictureBoxDisplay.Location = new System.Drawing.Point(12, 12);
-            this.pictureBoxDisplay.Name = "pictureBoxDisplay";
-            this.pictureBoxDisplay.Size = new System.Drawing.Size(994, 657);
-            this.pictureBoxDisplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxDisplay.TabIndex = 0;
-            this.pictureBoxDisplay.TabStop = false;
             // 
             // panelControl
             // 
@@ -241,14 +230,28 @@
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxLogo.Enabled = false;
+            this.pictureBoxLogo.Image = global::iP_Etapa2.Properties.Resources.logo;
             this.pictureBoxLogo.Location = new System.Drawing.Point(11, 16);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(230, 230);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.PictureBoxLogo_Click);
+            // 
+            // pictureBoxDisplay
+            // 
+            this.pictureBoxDisplay.Cursor = System.Windows.Forms.Cursors.No;
+            this.pictureBoxDisplay.Image = global::iP_Etapa2.Properties.Resources.noFileMini;
+            this.pictureBoxDisplay.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxDisplay.Name = "pictureBoxDisplay";
+            this.pictureBoxDisplay.Size = new System.Drawing.Size(994, 657);
+            this.pictureBoxDisplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxDisplay.TabIndex = 0;
+            this.pictureBoxDisplay.TabStop = false;
             // 
             // mainWindow
             // 
@@ -266,9 +269,9 @@
             this.Name = "mainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iR";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisplay)).EndInit();
             this.panelControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisplay)).EndInit();
             this.ResumeLayout(false);
 
         }
