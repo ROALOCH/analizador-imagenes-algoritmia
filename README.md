@@ -1,4 +1,4 @@
-# Analizador de Imágenes
+# Proyecto Integrador: Analizador de Imágenes
 
 Ochoa Herrera Rodrigo Alejandro  
 CUCEI | Universidad de Guadalajara  
